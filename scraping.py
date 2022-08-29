@@ -9,6 +9,7 @@ import datetime as dt    # to show when the code was run in mongo
 # Connect scraping results to Mongo
 def scrape_all():
     # set up splinter
+    # executable_path = {'executable_path': ChromeDriverManager().install()}
     executable_path = {'executable_path': chromedriver_autoinstaller.install()}
     browser = Browser('chrome', **executable_path, headless=True)
     
