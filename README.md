@@ -9,3 +9,14 @@ Webscraping for Mars data
 ![Webpage1](https://github.com/eoweed/Mission-to-Mars/blob/main/Scraping/Images/Mars1.png)
 ![Webpage2](https://github.com/eoweed/Mission-to-Mars/blob/main/Scraping/Images/Mars2.png)
 ![Webpage3](https://github.com/eoweed/Mission-to-Mars/blob/main/Scraping/Images/Mars3.png)
+
+#
+
+### Software:
+###### Python 3.9.12
+###### Flask 2.2.2
+###### Pymongo 2.3.0
+###### Pandas 1.4.3
+###### Splinter 0.18.0
+###### Beautifulsoup4 4.11.1
+
