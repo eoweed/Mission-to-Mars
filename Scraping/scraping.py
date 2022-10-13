@@ -1,10 +1,10 @@
-# Import Splinter and BeautifulSoup
+# Dependencies
 from splinter import Browser
 from bs4 import BeautifulSoup as soup
 # from webdriver_manager.chrome import ChromeDriverManager
 import chromedriver_autoinstaller
-import pandas as pd    # to use for mars facts scraping
-import datetime as dt    # to show when the code was run in mongo
+import pandas as pd
+import datetime as dt
 
 # Connect scraping results to Mongo
 def scrape_all():
@@ -29,9 +29,9 @@ def scrape_all():
     browser.quit()
     return data
 
-# ----------------------------------------
-# # Mars Planet Science: Article scraping
-# ----------------------------------------
+# ----------------------------------------------------------------
+# Mars Planet Science: Article scraping
+# ----------------------------------------------------------------
 def mars_news(browser):
     # Visit the mars nasa news site
     url = 'https://redplanetscience.com'
@@ -59,9 +59,9 @@ def mars_news(browser):
     
     return news_title, news_p
 
-# ----------------------------------------
-# # Jet Propulsion Laboratory: image scraping
-# ----------------------------------------
+# ----------------------------------------------------------------
+# Jet Propulsion Laboratory: Image scraping
+# ----------------------------------------------------------------
 def featured_image(browser):
     # Visit URL
     url = 'https://spaceimages-mars.com'
@@ -81,16 +81,15 @@ def featured_image(browser):
     except AttributeError:
         return None
 
-    # Use the base URL to create an absolute URL
-    # base url + partial url from above
+    # Create an absolute URL (base url + partial url from above)
     img_url = f'https://spaceimages-mars.com/{img_url_rel}'
     
     return img_url
 
 
-# ----------------------------------------
-# # Galaxy Facts: fact scraping
-# ----------------------------------------
+# ----------------------------------------------------------------
+# Galaxy Facts: Fact scraping
+# ----------------------------------------------------------------
 def mars_facts():
     try:
         # convert table from galaxy facts website to pd dataframe
@@ -106,19 +105,17 @@ def mars_facts():
 
 
 # ----------------------------------------------------------------
-# # D1: Scrape High-Resolution Mars’ Hemisphere Images and Titles
+# Scrape High-Resolution Mars’ Hemisphere Images and Titles
 # ----------------------------------------------------------------
-
 def mars_hemispheres(browser):
-    # 1. Use browser to visit the URL 
+    # Use browser to visit the URL 
     url = 'https://marshemispheres.com/'
     browser.visit(url)
 
-    # 2. Create a list to hold the images and titles.
+    # Create a list to hold the images and titles.
     hemisphere_image_urls = []
 
-    # 3. Write code to retrieve the image urls and titles for each hemisphere.
-
+    # Retrieve the image urls and titles for each hemisphere.
     html = browser.html
     img_soup = soup(html, 'html.parser')
 
@@ -150,21 +147,16 @@ def mars_hemispheres(browser):
             # add dictionary to list created in Step 2
             hemisphere_image_urls.append(hemispheres)
        
-
             # click back to home page
             browser.back()
 
     except:
         return None
 
-
-    # 4. Print the list that holds the dictionary of each image url and title.
+    # Print the list that holds the dictionary of each image url and title.
     return hemisphere_image_urls
 
-
-
-
-
+# ----------------------------------------------------------------
 # run flask app as a script on local device
 if __name__ == "__main__":
 

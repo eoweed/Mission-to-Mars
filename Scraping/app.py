@@ -9,7 +9,6 @@ import scraping
 app = Flask(__name__)
 
 # connect python and mongo with PyMongo
-# Use flask_pymongo to set up connection
 app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
 mongo = PyMongo(app)
 
